@@ -1,21 +1,17 @@
-import article.Article;
-import article.ArticleController;
-import system.SystemController;
+package com.ll;
+
+import com.ll.article.ArticleController;
+import com.ll.system.SystemController;
 
 
-import java.awt.desktop.SystemEventListener;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+
 
 public class APP {
-    Scanner sc;
     ArticleController articleController;
     SystemController systemController;
 
-    APP(Scanner sc) {
-        this.sc = sc;
-        articleController = new ArticleController(sc);
+    APP() {
+        articleController = new ArticleController();
         systemController = new SystemController();
     }
     public void run() {
@@ -24,7 +20,7 @@ public class APP {
 
         while (true) {
             System.out.print("명령) ");
-            String command = sc.nextLine();
+            String command = Container.getSc().nextLine();
             if (command.equals("종료")) {
                 systemController.exit();
                 break;
