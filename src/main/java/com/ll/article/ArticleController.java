@@ -26,11 +26,15 @@ public class ArticleController {
             return;
         }
 
-
         int memberId =  Container.getLoginMember().getId();
+        int t = articleService.create(title, content, memberId);
 
-        int id = articleService.create(title, content, memberId);
-        System.out.printf("%d번 게시글이 등록 되었습니다\n", id);
+        if (t > 0 ) {
+            System.out.printf("%d번 게시글이 등록 되었습니다\n", t);
+        } else {
+            System.out.println("똑같은 제목의 게시글이 존재합니다 다른 제목으로 입력 바랍니다");
+        }
+
 
     }
 

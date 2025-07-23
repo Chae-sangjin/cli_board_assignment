@@ -1,23 +1,53 @@
 DROP DATABASE IF EXISTS proj1;
 CREATE DATABASE proj1;
-
 USE proj1;
 
 CREATE TABLE article (
                          id int UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                         subject char(100) NOT NULL UNIQUE,
-                         content text
+                         title char(100) NOT NULL UNIQUE,
+                         content text,
+                         memberid int UNSIGNED NOT NULL,
+                         regDate DATETIME NOT null
 );
 
 
-INSERT INTO article
-SET id = 3,
-         	subject = "test3",
-         	content = "test3"
 
 
-INSERT INTO article SET subject='제목3', content='내용3'
+
+
 
 
 
 SELECT * FROM article;
+
+DESC article;
+
+
+CREATE TABLE MEMBER (
+                        id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+                        userid char(100) NOT NULL UNIQUE,
+                        password char(100) NOT NULL,
+                        regDate DATETIME NOT NULL
+
+);
+
+
+DESC MEMBER;
+
+SELECT * FROM MEMBER;
+
+
+
+SELECT
+    A.id,
+    A.title,
+    A.content,
+    A.regDate AS article_regDate,
+    M.userid,
+    M.password,
+    M.regDate AS member_regDate
+
+FROM article A
+         JOIN MEMBER M
+              ON A.memberid = M.id;
+

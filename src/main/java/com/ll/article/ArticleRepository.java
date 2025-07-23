@@ -12,7 +12,7 @@ public class ArticleRepository {
 
 
     public int create(String title, String content, int memberId) {
-        String sql = String.format("insert into article set title='%s', content='%s', memberid=%d, regDate=NOW()", title, content, memberId);
+        String sql = String.format("insert ignore into article set title='%s', content='%s', memberid=%d, regDate=NOW()", title, content, memberId);
         int id = Container.getDBConnection().insert(sql);
 
         return id;
