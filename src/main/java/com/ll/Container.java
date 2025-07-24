@@ -34,13 +34,13 @@ public class Container {
     }
 
 
+    public static void setLoginMember(Member member) {
+        loginMember = member;
+    }
+
 
     public static Member getLoginMember() {
         return loginMember;
-    }
-
-    public static void setLoginMember(Member member) {
-        loginMember = member;
     }
 
 

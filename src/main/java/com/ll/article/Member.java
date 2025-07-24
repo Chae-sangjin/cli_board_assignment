@@ -8,13 +8,14 @@ public class Member {
     private String password;
     private String regDate;
 
-    public Member(int id, String name, String userid, String password) {
+    public Member(int id, String name, String userid, String password, String regDate) {
         this.id = id;
-        this.name = name;
+        this.name = "";
         this.userid = userid;
         this.password = password;
         this.regDate = regDate;
     }
+
 
     public int getId() {
         return id;

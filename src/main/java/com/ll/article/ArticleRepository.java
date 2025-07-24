@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 public class ArticleRepository {
-    int lastId = 1;
 
 
     public int create(String title, String content, int memberId) {
@@ -61,6 +60,7 @@ public class ArticleRepository {
 
         return new Member(
                 (int) row.get("id"),
+                (String) row.get("name"),
                 (String) row.get("userId"),
                 (String) row.get("password"),
                 ((LocalDateTime) row.get("regDate")).toString()
